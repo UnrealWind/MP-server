@@ -11,6 +11,7 @@ const index = require('./routes/index')
 const users = require('./routes/users')
 const jssdk = require('./routes/jssdk')
 
+
 // error handler
 onerror(app)
 app.use(cors())
@@ -25,6 +26,9 @@ app.use(require('koa-static')(__dirname + '/public'))
 app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
+
+app.use(compression());
+
 
 // logger
 app.use(async (ctx, next) => {
